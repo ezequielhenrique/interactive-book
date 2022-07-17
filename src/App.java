@@ -32,6 +32,52 @@ public class App {
 
         } while (!isValid);
 
+        if (option == 1) {
+            System.out.println(
+                "Ok a partir de agora você é o líder de um grupo de anões, sua missão é recuperar Erebor, " 
+                + "a montanha solitária que uma vez já foi lar de seus ancestrais. Será uma missão difícil, " 
+                + "pois há vários seres na terra média que também querem o controle daquela montanha, " 
+                + "é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, " 
+                + "gostaria de recrutá-lo para ajudar na missão?"
+            );
+
+            do {
+                System.out.println("    [1] Sim, qualquer ajuda é bem vinda");
+                System.out.println("    [2] Não, não preciso de um pequeno Hobbit em minha equipe");
+    
+                option = sc.nextInt();
+                isValid = (option == 1 || option == 2);
+    
+                if (!isValid) {
+                    System.out.println("Opção inválida, tente novamente");
+                }
+    
+            } while (!isValid);
+
+        } else {
+            System.out.println(
+                "Você é o temido líder Orc, você tem um grande exército de Orcs sobre o seu controle, " 
+                + "um informante me contou que um grupo de anões está tentando recuperar o tesouro da antiga Erebor, " 
+                + "a montanha solitária que armazena uma grande fortuna, sua missão é impedir que os anões consigam " 
+                + "recuperar suas terras. Soube que os anões vão passar pelas colinas em sua jornada... Deseja " 
+                + "fazer uma emboscada para eles?"
+            );
+
+            do {
+                System.out.println("    [1] Sim, vamos acabar com eles nas colinas!");
+                System.out.println("    [2] Não, é melhor posicionar o exército nas redondezas de Erebor " 
+                    + "e armar uma emboscada por lá");
+    
+                option = sc.nextInt();
+                isValid = (option == 1 || option == 2);
+    
+                if (!isValid) {
+                    System.out.println("Opção inválida, tente novamente");
+                }
+    
+            } while (!isValid);
+        }
+
         sc.close();
     }
 }
