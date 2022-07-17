@@ -4,6 +4,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
+        /* ----------- Apresentação Inicial - Capítulo 1 ----------- */
+
         System.out.println("Olá, você acaba de iniciar uma nova jonada...");
         System.out.println("Me diga o nome de seu personagem");
 
@@ -32,6 +34,8 @@ public class App {
 
         } while (!isValid);
 
+        /* ----------- Capítulo 1.1 ----------- */
+
         if (option == 1) {
             System.out.println(
                 "Ok a partir de agora você é o líder de um grupo de anões, sua missão é recuperar Erebor, " 
@@ -54,8 +58,47 @@ public class App {
     
             } while (!isValid);
 
+            /* ----------- Capítulo 1.1.1 ----------- */
+
             if (option == 1) {
-                System.out.println("");
+                System.out.println(
+                    "Fomos buscar o Hobbit no condado, ele hesitou em participar mas no fim acabou concordando em ir " 
+                    + "seguimos nossa viagem através das colinas, um dos integrantes do grupo ouviu um barulho distante, você" 
+                    + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
+                );
+
+                do {
+                    System.out.println("    [1] Lutar, mesmo em menor número conseguiremos vencer esses orcs");
+                    System.out.println("    [2] Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
+        
+                    option = sc.nextInt();
+                    isValid = (option == 1 || option == 2);
+        
+                    if (!isValid) {
+                        System.out.println("Opção inválida, tente novamente");
+                    }
+        
+                } while (!isValid);
+
+                if (option == 1) {
+                    System.out.println(
+                        "Você enfrentou os orcs, porém eles estavam em maior número, seu grupo mesmo com " 
+                        + "bastante esforço não conseguiu vencê-los"
+                    );
+                    System.out.println();
+                    System.out.println("------ VOCÊ PERDEU ------");
+                    System.out.println();
+                    System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+                } else {
+
+                    /* ----------- Capítulo 1.1.1.2 ----------- */
+
+                    System.out.println("O pequeno Hobbit conseguiu encontrar um caminho secreto, seu grupo fugiu por ele!");
+                    
+                }
+
+            /* ----------- Capítulo 1.1.2 ----------- */
+
             } else {
                 System.out.println(
                     "Seguimos a jornada sem o Hobbit, seu grupo de anões está se dirigindo para Erebor " 
@@ -97,6 +140,8 @@ public class App {
                 }
             }
 
+        /* ----------- Capítulo 1.2 ----------- */
+        
         } else {
             System.out.println(
                 "Você é o temido líder Orc, você tem um grande exército de Orcs sobre o seu controle, " 
