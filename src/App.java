@@ -94,7 +94,48 @@ public class App {
                     /* ----------- Capítulo 1.1.1.2 ----------- */
 
                     System.out.println("O pequeno Hobbit conseguiu encontrar um caminho secreto, seu grupo fugiu por ele!");
-                    
+                    System.out.println(
+                        "No fim do caminho vocês se depararam com uma cidade élfica, o rei élfico ofereceu a " 
+                        + "ajuda de seu exército para conquistar Erebor, você vai aceitar?" 
+                    );
+
+                    do {
+                        System.out.println("    [1] Não, essa missão é só nossa, não cabe aos elfos se intrometer");
+                        System.out.println("    [2] Sim, o exército élfico será de grande ajuda para a missão");
+            
+                        option = sc.nextInt();
+                        isValid = (option == 1 || option == 2);
+            
+                        if (!isValid) {
+                            System.out.println("Opção inválida, tente novamente");
+                        }
+            
+                    } while (!isValid);
+
+                    if (option == 1) {
+                        System.out.println(
+                        "Seu grupo se dirigiu até a montanha solitária, nas proximidades da montanha vocês foram " 
+                        + "emboscados novamente por orcs, dessa vez não houve escapatória, vocês lutaram bravamente " 
+                        + "mas os orcs eram muitos..."
+                        );
+                        System.out.println();
+                        System.out.println("------ VOCÊ PERDEU ------");
+                        System.out.println();
+                        System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+
+                    } else {
+                        System.out.println(
+                            "Seu grupo se dirigiu até a montanha solitária acompanhados dos elfos, nas proximidades da " 
+                            + "montanha vocês foram emboscados novamente por orcs, houve uma batalha difícil que durou " 
+                            + "por vários dias, depois de muito esforço voçês conseguiram derrotar o exército orc, e olha " 
+                            + "só, o pequeno Hobbit foi quem derrotou o terrível Líder Orc, vocês recuperaram a montanha "
+                            + "solitária e realizaram uma grande festa em comemoração!"
+                        );
+                        System.out.println();
+                        System.out.println("------ PARABÉNS " + name + "! VOCÊ VENCEU!!! ------");
+                        System.out.println();
+                        System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+                    }
                 }
 
             /* ----------- Capítulo 1.1.2 ----------- */
