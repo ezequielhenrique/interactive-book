@@ -205,6 +205,37 @@ public class App {
                 }
     
             } while (!isValid);
+
+            /* ----------- Capítulo 1.2.1 ----------- */
+
+            if (option == 1) {
+                System.out.println(
+                    "Seu exército emboscou o grupo de anões nas colinas, mas eles conseguiram escapar " 
+                    + "por uma passagem secreta, eles receberam ajuda dos elfos e se dirigiram para Erebor, " 
+                    + "seu exército tentou emboscá-los novamente em erebor mas não teve êxito, seu exército " 
+                    + "foi derrotado..."
+                );
+                System.out.println();
+                System.out.println("------ VOCÊ PERDEU ------");
+                System.out.println();
+                System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+
+            /* ----------- Capítulo 1.2.2 ----------- */
+
+            } else {
+                System.out.println(
+                    "Seu exército marchou até Erebor e se posicionou por lá, os anões chegaram sozinhos e sem nenhuma " 
+                    + "ajuda, eles tentaram resistir mas não adiantou muito..."
+                );
+                System.out.println(
+                    "Os anões foram derrotados e você conseguiu controle sobre a montanha solitária, agora " 
+                    + "todos na terra média temem o seu poderoso exército orc!"
+                );
+                System.out.println();
+                System.out.println("------ PARABÉNS " + name + "! VOCÊ VENCEU!!! ------");
+                System.out.println();
+                System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+            }
         }
 
         sc.close();
