@@ -54,6 +54,49 @@ public class App {
     
             } while (!isValid);
 
+            if (option == 1) {
+                System.out.println("");
+            } else {
+                System.out.println(
+                    "Seguimos a jornada sem o Hobbit, seu grupo de anões está se dirigindo para Erebor " 
+                    + "através das colinas, um dos integrantes do grupo ouviu um barulho distante, você" 
+                    + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
+                );
+
+                do {
+                    System.out.println("    [1] Lutar, mesmo em menor número conseguiremos vencer esses orcs");
+                    System.out.println("    [2] Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
+        
+                    option = sc.nextInt();
+                    isValid = (option == 1 || option == 2);
+        
+                    if (!isValid) {
+                        System.out.println("Opção inválida, tente novamente");
+                    }
+        
+                } while (!isValid);
+
+                if (option == 1) {
+                    System.out.println(
+                        "Você enfrentou os orcs, porém eles estavam em maior número, seu grupo mesmo com " 
+                        + "bastante esforço não conseguiu vencê-los"
+                    );
+                    System.out.println();
+                    System.out.println("------ VOCÊ PERDEU ------");
+                    System.out.println();
+                    System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+                } else {
+                    System.out.println(
+                        "Você tentou escapar, porém nínguem encontrou uma saída, então os orcs conseguiram alcança-los... " 
+                        + "Seu grupo tentou lutar mas não conseguiu vencê-los"
+                    );
+                    System.out.println();
+                    System.out.println("------ VOCÊ PERDEU ------");
+                    System.out.println();
+                    System.out.println("=-=-=-=-= FIM DE JOGO =-=-=-=-=");
+                }
+            }
+
         } else {
             System.out.println(
                 "Você é o temido líder Orc, você tem um grande exército de Orcs sobre o seu controle, " 
