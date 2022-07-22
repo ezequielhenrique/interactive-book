@@ -1,8 +1,29 @@
 import java.util.Scanner;
 
 public class App {
+    public static int selectOption(Scanner sc, String option1, String option2) {
+        int option;
+        boolean isValid;
+
+        do {
+            System.out.println("    [1] " + option1);
+            System.out.println("    [2] " + option2);
+
+            option = sc.nextInt();
+            isValid = (option == 1 || option == 2);
+
+            if (!isValid) {
+                System.out.println("Opção inválida, tente novamente");
+            }
+
+        } while (!isValid);
+
+        return option;
+    }
+
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
+        int option;
 
         /* ----------- Apresentação Inicial - Capítulo 1 ----------- */
 
@@ -18,21 +39,7 @@ public class App {
             + "você será durante a jornada, escolha sua opção:"
         );
 
-        int option;
-        boolean isValid;
-
-        do {
-            System.out.println("    [1] Líder Anão");
-            System.out.println("    [2] Líder Orc");
-
-            option = sc.nextInt();
-            isValid = (option == 1 || option == 2);
-
-            if (!isValid) {
-                System.out.println("Opção inválida, tente novamente");
-            }
-
-        } while (!isValid);
+        option = selectOption(sc, "Líder Anão", "Líder Orc");
 
         /* ----------- Capítulo 1.1 ----------- */
 
@@ -45,18 +52,9 @@ public class App {
                 + "gostaria de recrutá-lo para ajudar na missão?"
             );
 
-            do {
-                System.out.println("    [1] Sim, qualquer ajuda é bem vinda");
-                System.out.println("    [2] Não, não preciso de um pequeno Hobbit em minha equipe");
-    
-                option = sc.nextInt();
-                isValid = (option == 1 || option == 2);
-    
-                if (!isValid) {
-                    System.out.println("Opção inválida, tente novamente");
-                }
-    
-            } while (!isValid);
+            option = selectOption(sc, 
+                        "Sim, qualquer ajuda é bem vinda", 
+                        "Não, não preciso de um pequeno Hobbit em minha equipe");
 
             /* ----------- Capítulo 1.1.1 ----------- */
 
@@ -67,18 +65,9 @@ public class App {
                     + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
                 );
 
-                do {
-                    System.out.println("    [1] Lutar, mesmo em menor número conseguiremos vencer esses orcs");
-                    System.out.println("    [2] Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
-        
-                    option = sc.nextInt();
-                    isValid = (option == 1 || option == 2);
-        
-                    if (!isValid) {
-                        System.out.println("Opção inválida, tente novamente");
-                    }
-        
-                } while (!isValid);
+                option = selectOption(sc, 
+                            "Lutar, mesmo em menor número conseguiremos vencer esses orcs", 
+                            "Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
 
                 if (option == 1) {
                     System.out.println(
@@ -99,18 +88,9 @@ public class App {
                         + "ajuda de seu exército para conquistar Erebor, você vai aceitar?" 
                     );
 
-                    do {
-                        System.out.println("    [1] Não, essa missão é só nossa, não cabe aos elfos se intrometer");
-                        System.out.println("    [2] Sim, o exército élfico será de grande ajuda para a missão");
-            
-                        option = sc.nextInt();
-                        isValid = (option == 1 || option == 2);
-            
-                        if (!isValid) {
-                            System.out.println("Opção inválida, tente novamente");
-                        }
-            
-                    } while (!isValid);
+                    option = selectOption(sc, 
+                                "Não, essa missão é só nossa, não cabe aos elfos se intrometer", 
+                                "Sim, o exército élfico será de grande ajuda para a missão");
 
                     if (option == 1) {
                         System.out.println(
@@ -147,18 +127,9 @@ public class App {
                     + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
                 );
 
-                do {
-                    System.out.println("    [1] Lutar, mesmo em menor número conseguiremos vencer esses orcs");
-                    System.out.println("    [2] Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
-        
-                    option = sc.nextInt();
-                    isValid = (option == 1 || option == 2);
-        
-                    if (!isValid) {
-                        System.out.println("Opção inválida, tente novamente");
-                    }
-        
-                } while (!isValid);
+                option = selectOption(sc, 
+                        "Lutar, mesmo em menor número conseguiremos vencer esses orcs", 
+                        "Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
 
                 if (option == 1) {
                     System.out.println(
@@ -192,19 +163,10 @@ public class App {
                 + "fazer uma emboscada para eles?"
             );
 
-            do {
-                System.out.println("    [1] Sim, vamos acabar com eles nas colinas!");
-                System.out.println("    [2] Não, é melhor posicionar o exército nas redondezas de Erebor " 
-                    + "e armar uma emboscada por lá");
-    
-                option = sc.nextInt();
-                isValid = (option == 1 || option == 2);
-    
-                if (!isValid) {
-                    System.out.println("Opção inválida, tente novamente");
-                }
-    
-            } while (!isValid);
+            option = selectOption(sc, 
+                    "Sim, vamos acabar com eles nas colinas!", 
+                    "Não, é melhor posicionar o exército nas redondezas de Erebor e armar uma emboscada por lá");
+
 
             /* ----------- Capítulo 1.2.1 ----------- */
 
