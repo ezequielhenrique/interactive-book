@@ -25,6 +25,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int option;
 
+        Character anoes = new Character("Anões", 1000);
+        Character orcs = new Character("Orcs", 2500);
+
         /* ----------- Apresentação Inicial - Capítulo 1 ----------- */
 
         System.out.println("Olá, você acaba de iniciar uma nova jonada...");
@@ -35,8 +38,9 @@ public class App {
         System.out.println(
             "Olá " + name + "! Eu sou o Gandalf, o Mago Cinzento que irá te ajudar durante essa jornada, " 
             + "será uma jornada na terra média, um lugar onde você pode encontrar hobbits, anões, elfos " 
-            + "e os terríveis orcs, mas calma lá, antes de iniciarmos você precisa escolher qual personagem " 
-            + "você será durante a jornada, escolha sua opção:"
+            + "e os terríveis orcs, você também terá itens como energia e ouro durante a jornada, eles " 
+            + "podem aumentar ou diminuir baseado em suas ações, só é bom ter cuidado para não ficar sem energia..." 
+            + "Para iniciarmos você precisa escolher qual personagem você será durante a jornada, escolha sua opção:"
         );
 
         option = selectOption(sc, "Líder Anão", "Líder Orc");
@@ -51,10 +55,14 @@ public class App {
                 + "é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, " 
                 + "gostaria de recrutá-lo para ajudar na missão?"
             );
+            System.out.println(
+                "Notas do capítulo: Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
+            );
 
             option = selectOption(sc, 
-                        "Sim, qualquer ajuda é bem vinda", 
-                        "Não, não preciso de um pequeno Hobbit em minha equipe");
+            "Sim, qualquer ajuda é bem vinda", 
+            "Não, não preciso de um pequeno Hobbit em minha equipe"
+            );
 
             /* ----------- Capítulo 1.1.1 ----------- */
 
@@ -65,14 +73,31 @@ public class App {
                     + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
                 );
 
+                anoes.decrementEnergy(10);
+                anoes.decrementGold(100);
+
+                System.out.println(
+                    "Notas do capítulo: A ida ao condado lhe custou 10 de energia e 100 de ouro. " 
+                    + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
+                );
+
                 option = selectOption(sc, 
-                            "Lutar, mesmo em menor número conseguiremos vencer esses orcs", 
-                            "Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
+                "Lutar, mesmo em menor número conseguiremos vencer esses orcs", 
+                "Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga"
+                );
 
                 if (option == 1) {
                     System.out.println(
                         "Você enfrentou os orcs, porém eles estavam em maior número, seu grupo mesmo com " 
                         + "bastante esforço não conseguiu vencê-los"
+                    );
+
+                    anoes.decrementEnergy(anoes.getEnergy());
+                    anoes.decrementGold(anoes.getGold());
+
+                    System.out.println(
+                    "Notas do capítulo: Você perdeu toda a sua energia e os Orcs roubaram todo o seu ouro. " 
+                    + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
                     );
                     System.out.println();
                     System.out.println("------ VOCÊ PERDEU ------");
@@ -82,21 +107,42 @@ public class App {
 
                     /* ----------- Capítulo 1.1.1.2 ----------- */
 
-                    System.out.println("O pequeno Hobbit conseguiu encontrar um caminho secreto, seu grupo fugiu por ele!");
-                    System.out.println(
-                        "No fim do caminho vocês se depararam com uma cidade élfica, o rei élfico ofereceu a " 
+                    System.out.println("O pequeno Hobbit conseguiu encontrar um caminho secreto, seu grupo fugiu por ele!"
+                        + "No fim do caminho vocês se depararam com uma cidade élfica, o rei élfico ofereceu a " 
                         + "ajuda de seu exército para conquistar Erebor, você vai aceitar?" 
                     );
 
+                    anoes.decrementEnergy(10);
+                    anoes.incrementGold(1000);
+                    anoes.incrementGold(500);
+                    orcs.decrementEnergy(50);
+                    
+                    System.out.println(
+                        "Notas do capítulo: A fuga lhe custou 10 de energia, durante a fuga o hobbit encontrou um barril "
+                        + "com 1000 moedas de ouro, os elfos lhe pesentearam com 500 moedas de ouro. " 
+                        + "Os orcs perderam 50 de energia por conta da emboscada fracassada." 
+                        + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro. "
+                        + "Os Orcs possuem " + orcs.getEnergy() + "de energia."
+                    );
+
                     option = selectOption(sc, 
-                                "Não, essa missão é só nossa, não cabe aos elfos se intrometer", 
-                                "Sim, o exército élfico será de grande ajuda para a missão");
+                    "Não, essa missão é só nossa, não cabe aos elfos se intrometer", 
+                    "Sim, o exército élfico será de grande ajuda para a missão"
+                    );
 
                     if (option == 1) {
                         System.out.println(
-                        "Seu grupo se dirigiu até a montanha solitária, nas proximidades da montanha vocês foram " 
-                        + "emboscados novamente por orcs, dessa vez não houve escapatória, vocês lutaram bravamente " 
-                        + "mas os orcs eram muitos..."
+                            "Seu grupo se dirigiu até a montanha solitária, nas proximidades da montanha vocês foram " 
+                            + "emboscados novamente por orcs, dessa vez não houve escapatória, vocês lutaram bravamente " 
+                            + "mas os orcs eram muitos..."
+                        );
+
+                        anoes.decrementEnergy(anoes.getEnergy());
+                        anoes.decrementGold(anoes.getGold());
+
+                        System.out.println(
+                            "Notas do capítulo: Você perdeu toda a sua energia e os Orcs roubaram todo o seu ouro. " 
+                            + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
                         );
                         System.out.println();
                         System.out.println("------ VOCÊ PERDEU ------");
@@ -111,6 +157,19 @@ public class App {
                             + "só, o pequeno Hobbit foi quem derrotou o terrível Líder Orc, vocês recuperaram a montanha "
                             + "solitária e realizaram uma grande festa em comemoração!"
                         );
+
+                        anoes.decrementEnergy(50);
+                        anoes.incrementGold(100000);
+                        orcs.decrementEnergy(orcs.getEnergy());
+                    
+                        System.out.println(
+                            "Notas do capítulo: A batalha lhe custou 50 de energia, porém vocês conquistaram todas " 
+                            + "as riquezas de Erebor, você recebeu 100000 de ouro"
+                            + "Os orcs foram derrotados e perderam toda a sua energia." 
+                            + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro. "
+                            + "Os Orcs possuem " + orcs.getEnergy() + "de energia."
+                        );
+
                         System.out.println();
                         System.out.println("------ PARABÉNS " + name + "! VOCÊ VENCEU!!! ------");
                         System.out.println();
@@ -127,6 +186,13 @@ public class App {
                     + "foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?"
                 );
 
+                anoes.decrementEnergy(10);
+
+                System.out.println(
+                    "Notas do capítulo: A jornada lhe custou 10 de energia, você não pederdeu nenhum ouro. " 
+                    + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
+                );
+
                 option = selectOption(sc, 
                         "Lutar, mesmo em menor número conseguiremos vencer esses orcs", 
                         "Fugir, pedir para que todos os integrantes do grupo procurem por uma rota de fuga");
@@ -136,6 +202,14 @@ public class App {
                         "Você enfrentou os orcs, porém eles estavam em maior número, seu grupo mesmo com " 
                         + "bastante esforço não conseguiu vencê-los"
                     );
+
+                    anoes.decrementEnergy(anoes.getEnergy());
+                    anoes.decrementGold(anoes.getGold());
+
+                    System.out.println(
+                        "Notas do capítulo: Você perdeu toda a sua energia e os Orcs roubaram todo o seu ouro. " 
+                        + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
+                    );
                     System.out.println();
                     System.out.println("------ VOCÊ PERDEU ------");
                     System.out.println();
@@ -144,6 +218,14 @@ public class App {
                     System.out.println(
                         "Você tentou escapar, porém nínguem encontrou uma saída, então os orcs conseguiram alcança-los... " 
                         + "Seu grupo tentou lutar mas não conseguiu vencê-los"
+                    );
+
+                    anoes.decrementEnergy(anoes.getEnergy());
+                    anoes.decrementGold(anoes.getGold());
+                    
+                    System.out.println(
+                        "Notas do capítulo: Você perdeu toda a sua energia e os Orcs roubaram todo o seu ouro. " 
+                        + "Você possui " + anoes.getEnergy() + " de energia e " + anoes.getGold() + " de ouro"
                     );
                     System.out.println();
                     System.out.println("------ VOCÊ PERDEU ------");
@@ -163,9 +245,14 @@ public class App {
                 + "fazer uma emboscada para eles?"
             );
 
+            System.out.println(
+                "Notas do capítulo: Você possui " + orcs.getEnergy() + " de energia e " + orcs.getGold() + " de ouro"
+            );
+
             option = selectOption(sc, 
-                    "Sim, vamos acabar com eles nas colinas!", 
-                    "Não, é melhor posicionar o exército nas redondezas de Erebor e armar uma emboscada por lá");
+            "Sim, vamos acabar com eles nas colinas!", 
+            "Não, é melhor posicionar o exército nas redondezas de Erebor e armar uma emboscada por lá"
+            );
 
 
             /* ----------- Capítulo 1.2.1 ----------- */
@@ -177,6 +264,15 @@ public class App {
                     + "seu exército tentou emboscá-los novamente em erebor mas não teve êxito, seu exército " 
                     + "foi derrotado..."
                 );
+
+                orcs.decrementEnergy(orcs.getEnergy());
+                orcs.decrementGold(orcs.getGold());
+                    
+                System.out.println(
+                    "Notas do capítulo: Você perdeu toda a sua energia e um grupo de Orcs rivais roubou o seu ouro. " 
+                    + "Você possui " + orcs.getEnergy() + " de energia e " + orcs.getGold() + " de ouro"
+                );
+
                 System.out.println();
                 System.out.println("------ VOCÊ PERDEU ------");
                 System.out.println();
@@ -188,11 +284,22 @@ public class App {
                 System.out.println(
                     "Seu exército marchou até Erebor e se posicionou por lá, os anões chegaram sozinhos e sem nenhuma " 
                     + "ajuda, eles tentaram resistir mas não adiantou muito..."
-                );
-                System.out.println(
-                    "Os anões foram derrotados e você conseguiu controle sobre a montanha solitária, agora " 
+                    + "Os anões foram derrotados e você conseguiu controle sobre a montanha solitária, agora " 
                     + "todos na terra média temem o seu poderoso exército orc!"
                 );
+
+                anoes.decrementEnergy(anoes.getEnergy());
+                orcs.incrementGold(100000);
+                orcs.decrementEnergy(50);
+
+                System.out.println(
+                    "Notas do capítulo: A batalha lhe custou 50 de energia, porém vocês conquistaram todas " 
+                    + "as riquezas de Erebor, você recebeu 100000 de ouro. "
+                    + "Os anões foram derrotados e perderam toda a sua energia." 
+                    + "Você possui " + orcs.getEnergy() + " de energia e " + orcs.getGold() + " de ouro. "
+                    + "Os Anões possuem " + orcs.getEnergy() + "de energia."
+                );
+
                 System.out.println();
                 System.out.println("------ PARABÉNS " + name + "! VOCÊ VENCEU!!! ------");
                 System.out.println();
