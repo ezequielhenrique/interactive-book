@@ -1,29 +1,30 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chapter {
     String name;
     String text;
     String chapterNotes;
-    String option1;
-    String option2;
+    ArrayList<String> options;
     Character character;
     int energyChange;
     int goldChange;
+    Scanner scanner;
 
     public Chapter() {
 
     }
 
-    public Chapter(String name, String text, String chapterNotes, String option1, String option2, 
-                    Character character, int energyChange, int goldChange) {
+    public Chapter(String name, String text, String chapterNotes, ArrayList<String> options, 
+                    Character character, int energyChange, int goldChange, Scanner scanner) {
         this.name = name;
         this.text = text;
         this.chapterNotes = chapterNotes;
-        this.option1 = option1;
-        this.option2 = option2;
+        this.options = options;
         this.character = character;
         this.energyChange = energyChange;
         this.goldChange = goldChange;
+        this.scanner = scanner;
     }
 
     public void show() {
@@ -44,29 +45,30 @@ public class Chapter {
             this.character.incrementGold(goldChange);
         }
         
-        if (this.chapterNotes != "") {
+        if (this.chapterNotes != null) {
             System.out.println();
             System.out.println(this.chapterNotes + " Você possui " 
             + this.character.getEnergy() + " de energia e " 
             + this.character.getGold() + " de ouro.");
             System.out.println();
         }
-        
-        if (this.option1 != "" && this.option2 != "") {
-            System.out.println("    [1] " + this.option1);
-            System.out.println("    [2] " + this.option2);
+
+        if (this.options != null) {
+            for (int i=0; i < this.options.size(); i++) {
+                System.out.println(i + 1 + "- " + this.options.get(i));
+            }
         }
     }
 
-    public int selectOption(Scanner sc) {
+    public int selectOption() {
         int option;
         boolean isValid;
 
         do {
             System.out.println("Digite sua opção: ");
 
-            option = sc.nextInt();
-            isValid = (option == 1 || option == 2);
+            option = this.scanner.nextInt() - 1;
+            isValid = (option >= 0 && option < this.options.size());
 
             if (!isValid) {
                 System.out.println("Opção inválida, tente novamente");
