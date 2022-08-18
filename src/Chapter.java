@@ -5,22 +5,18 @@ public class Chapter {
     String name;
     String text;
     String chapterNotes;
-    ArrayList<String> options;
+    ArrayList<Choice> options;
     Character character;
     int energyChange;
     int goldChange;
     Scanner scanner;
 
-    public Chapter() {
-
-    }
-
-    public Chapter(String name, String text, String chapterNotes, ArrayList<String> options, 
-                    Character character, int energyChange, int goldChange, Scanner scanner) {
+    public Chapter(String name, String text, String chapterNotes, Character character, 
+                    int energyChange, int goldChange, Scanner scanner) {
         this.name = name;
         this.text = text;
         this.chapterNotes = chapterNotes;
-        this.options = options;
+        this.options = new ArrayList<Choice>();
         this.character = character;
         this.energyChange = energyChange;
         this.goldChange = goldChange;
@@ -55,8 +51,14 @@ public class Chapter {
 
         if (this.options != null) {
             for (int i=0; i < this.options.size(); i++) {
-                System.out.println(i + 1 + "- " + this.options.get(i));
+                System.out.println(i + 1 + "- " + this.options.get(i).text);
             }
+        }
+
+        if (options.size() > 0) {
+            int indexChoice = selectOption();
+
+            this.options.get(indexChoice).nextChapter.show();
         }
     }
 
