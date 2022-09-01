@@ -32,6 +32,49 @@ public class FileReader {
         return characters;
     }
 
+    public HashMap<String, Chapter> readChapters(String pathFile, HashMap<String, Character> characters, Scanner scConsole) throws FileNotFoundException {
+
+        HashMap<String, Chapter> chapters = new HashMap<String, Chapter>();
+        File chaptersFile = new File(pathFile);
+        Scanner sc = new Scanner(chaptersFile, "UTF-8");
+
+        String chapterTitle;
+        String chapterText;
+        String chapterNotes;
+        String chapterCharacterName;
+        int chapterEnergyChange;
+        int chapterGoldChange;
+
+        String fileLine = "";
+
+        while(sc.hasNextLine()) {
+            while (!fileLine.equals("CHAPTER")) {
+                fileLine = sc.nextLine();
+            }
+            chapterTitle = getValue(sc.nextLine());
+            chapterText = getValue(sc.nextLine());
+            chapterNotes = getValue(sc.nextLine());
+            chapterCharacterName = getValue(sc.nextLine());
+            chapterEnergyChange = Integer.parseInt(getValue(sc.nextLine()));
+            chapterGoldChange = Integer.parseInt(getValue(sc.nextLine()));
+
+            chapters.put(chapterTitle, new Chapter(chapterTitle, 
+                                                chapterText, 
+                                                chapterNotes, 
+                                                characters.get(chapterCharacterName), 
+                                                chapterEnergyChange, 
+                                                chapterGoldChange, 
+                                                scConsole
+            ));
+            
+            fileLine = "";
+        }
+
+        sc.close();
+
+        return chapters;
+    }
+
     private String getValue(String fileLine) {
         boolean isValue = false;
         String value = "";

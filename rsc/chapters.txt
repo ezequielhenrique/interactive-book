@@ -1,0 +1,7 @@
+CHAPTER
+TITLE: Apresentação Inicial
+TEXT: Olá! Eu sou o Gandalf, o Mago Cinzento que irá te ajudar durante essa jornada, será uma jornada na terra média, um lugar onde você pode encontrar hobbits, anões, elfos e os terríveis orcs, você também terá itens como energia e ouro durante a jornada, eles podem aumentar ou diminuir baseado em suas ações, só é bom ter cuidado para não ficar sem energia... Para iniciarmos você precisa escolher qual personagem você será durante a jornada, escolha sua opção 
+CHAPTER_NOTES: null
+CHARACTER: Anões
+ENERGY_CHANGE: 0
+GOLD_CHANGE: 0

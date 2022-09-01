@@ -11,24 +11,23 @@ public class App {
         Character anoes = characters.get("Anões");
         Character orcs = characters.get("Orcs");
 
-        System.out.println("Olá, você acaba de iniciar uma nova jonada...");
-        System.out.println("Me diga o nome de seu personagem");
+        HashMap<String, Chapter> chapters = reader.readChapters("rsc/chapters.txt", characters, sc);
 
-        String userName = sc.nextLine();
+        Chapter preface = chapters.get("Apresentação Inicial");
 
-        Chapter preface = new Chapter(
-            "Apresentação Inicial", 
-            "Olá " + userName + "! Eu sou o Gandalf, o Mago Cinzento que irá te ajudar durante essa jornada, " 
-            + "será uma jornada na terra média, um lugar onde você pode encontrar hobbits, anões, elfos " 
-            + "e os terríveis orcs, você também terá itens como energia e ouro durante a jornada, eles " 
-            + "podem aumentar ou diminuir baseado em suas ações, só é bom ter cuidado para não ficar sem energia..." 
-            + "Para iniciarmos você precisa escolher qual personagem você será durante a jornada, escolha sua opção:", 
-            null, 
-            anoes, 
-            0, 
-            0, 
-            sc
-        );
+        // Chapter preface = new Chapter(
+        //     "Apresentação Inicial", 
+        //     "Olá " + userName + "! Eu sou o Gandalf, o Mago Cinzento que irá te ajudar durante essa jornada, " 
+        //     + "será uma jornada na terra média, um lugar onde você pode encontrar hobbits, anões, elfos " 
+        //     + "e os terríveis orcs, você também terá itens como energia e ouro durante a jornada, eles " 
+        //     + "podem aumentar ou diminuir baseado em suas ações, só é bom ter cuidado para não ficar sem energia..." 
+        //     + "Para iniciarmos você precisa escolher qual personagem você será durante a jornada, escolha sua opção:", 
+        //     null, 
+        //     anoes, 
+        //     0, 
+        //     0, 
+        //     sc
+        // );
 
         // anões
 
@@ -39,7 +38,7 @@ public class App {
             + "pois há vários seres na terra média que também querem o controle daquela montanha, " 
             + "é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, " 
             + "gostaria de recrutá-lo para ajudar na missão?", 
-            userName + ",", 
+            "", 
             anoes, 
             0, 
             0, 
@@ -130,7 +129,7 @@ public class App {
             + "a montanha solitária que armazena uma grande fortuna, sua missão é impedir que os anões consigam " 
             + "recuperar suas terras. Soube que os anões vão passar pelas colinas em sua jornada... Deseja " 
             + "fazer uma emboscada para eles?", 
-            userName + ",", 
+            ",", 
             orcs, 
             0, 
             0, 
