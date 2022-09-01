@@ -1,11 +1,15 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
-        Character anoes = new Character("Anões", 1000);
-        Character orcs = new Character("Orcs", 2500);
+        FileReader reader = new FileReader();
+        HashMap<String, Character> characters = reader.readCharacters("rsc/characters.txt");
+
+        Character anoes = characters.get("Anões");
+        Character orcs = characters.get("Orcs");
 
         System.out.println("Olá, você acaba de iniciar uma nova jonada...");
         System.out.println("Me diga o nome de seu personagem");

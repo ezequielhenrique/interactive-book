@@ -1,14 +1,15 @@
 public class Character {
     private String name;
-    private int energy = 100;
+    private int energy;
     private int gold;
 
     public Character() {
 
     }
 
-    public Character(String name, int gold) {
+    public Character(String name, int energy, int gold) {
         this.name = name;
+        this.energy = energy;
         this.gold = gold;
     }
 
