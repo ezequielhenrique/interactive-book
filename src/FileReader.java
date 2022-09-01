@@ -38,6 +38,29 @@ public class FileReader {
         File chaptersFile = new File(pathFile);
         Scanner sc = new Scanner(chaptersFile, "UTF-8");
 
+        String fileLine = "";
+
+        while(sc.hasNextLine()) {
+            while (!fileLine.equals("CHAPTER") && !fileLine.equals("CHOICE")) {
+                fileLine = sc.nextLine();
+            }
+            if (fileLine.equals("CHAPTER")) {
+                readChapter(characters, scConsole, chapters, sc);
+            }
+            if (fileLine.equals("CHOICE")) {
+                readChoice(chapters, sc);
+            }
+
+            fileLine = "";
+        }
+
+        sc.close();
+
+        return chapters;
+    }
+
+    private void readChapter(HashMap<String, Character> characters, Scanner scConsole, HashMap<String, Chapter> chapters,
+            Scanner sc) {
         String chapterTitle;
         String chapterText;
         String chapterNotes;
@@ -45,34 +68,36 @@ public class FileReader {
         int chapterEnergyChange;
         int chapterGoldChange;
 
-        String fileLine = "";
+        chapterTitle = getValue(sc.nextLine());
+        chapterText = getValue(sc.nextLine());
+        chapterNotes = getValue(sc.nextLine());
+        chapterCharacterName = getValue(sc.nextLine());
+        chapterEnergyChange = Integer.parseInt(getValue(sc.nextLine()));
+        chapterGoldChange = Integer.parseInt(getValue(sc.nextLine()));
 
-        while(sc.hasNextLine()) {
-            while (!fileLine.equals("CHAPTER")) {
-                fileLine = sc.nextLine();
-            }
-            chapterTitle = getValue(sc.nextLine());
-            chapterText = getValue(sc.nextLine());
-            chapterNotes = getValue(sc.nextLine());
-            chapterCharacterName = getValue(sc.nextLine());
-            chapterEnergyChange = Integer.parseInt(getValue(sc.nextLine()));
-            chapterGoldChange = Integer.parseInt(getValue(sc.nextLine()));
+        chapters.put(chapterTitle, new Chapter(chapterTitle, 
+                                            chapterText, 
+                                            chapterNotes, 
+                                            characters.get(chapterCharacterName), 
+                                            chapterEnergyChange, 
+                                            chapterGoldChange, 
+                                            scConsole
+        ));
+    }
 
-            chapters.put(chapterTitle, new Chapter(chapterTitle, 
-                                                chapterText, 
-                                                chapterNotes, 
-                                                characters.get(chapterCharacterName), 
-                                                chapterEnergyChange, 
-                                                chapterGoldChange, 
-                                                scConsole
-            ));
-            
-            fileLine = "";
-        }
+    private void readChoice(HashMap<String, Chapter> chapters, Scanner sc) {
+        String choiceSourceChapter;
+        String choiceText;
+        String choiceDestinationChapter;
 
-        sc.close();
+        choiceSourceChapter = getValue(sc.nextLine());
+        choiceText = getValue(sc.nextLine());
+        choiceDestinationChapter = getValue(sc.nextLine());
 
-        return chapters;
+        Chapter sourceChapter = chapters.get(choiceSourceChapter);
+        Chapter destinyChapter = chapters.get(choiceDestinationChapter);
+
+        sourceChapter.options.add(new Choice(choiceText, destinyChapter));
     }
 
     private String getValue(String fileLine) {

@@ -14,6 +14,7 @@ public class App {
         HashMap<String, Chapter> chapters = reader.readChapters("rsc/chapters.txt", characters, sc);
 
         Chapter preface = chapters.get("Apresentação Inicial");
+        Chapter anoesChapterOne = chapters.get("Capítulo 1");
 
         // Chapter preface = new Chapter(
         //     "Apresentação Inicial", 
@@ -31,19 +32,19 @@ public class App {
 
         // anões
 
-        Chapter anoesChapterOne = new Chapter(
-            "Capítulo 1", 
-            "Ok a partir de agora você é o líder de um grupo de anões, sua missão é recuperar Erebor, " 
-            + "a montanha solitária que uma vez já foi lar de seus ancestrais. Será uma missão difícil, " 
-            + "pois há vários seres na terra média que também querem o controle daquela montanha, " 
-            + "é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, " 
-            + "gostaria de recrutá-lo para ajudar na missão?", 
-            "", 
-            anoes, 
-            0, 
-            0, 
-            sc
-        );
+        // Chapter anoesChapterOne = new Chapter(
+        //     "Capítulo 1", 
+        //     "Ok a partir de agora você é o líder de um grupo de anões, sua missão é recuperar Erebor, " 
+        //     + "a montanha solitária que uma vez já foi lar de seus ancestrais. Será uma missão difícil, " 
+        //     + "pois há vários seres na terra média que também querem o controle daquela montanha, " 
+        //     + "é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, " 
+        //     + "gostaria de recrutá-lo para ajudar na missão?", 
+        //     "", 
+        //     anoes, 
+        //     0, 
+        //     0, 
+        //     sc
+        // );
 
         Chapter anoesChapterTwo_1 = new Chapter(
             "Capítulo 2", 
@@ -165,7 +166,7 @@ public class App {
 
         // árvore de capítulos
 
-        preface.options.add(new Choice("Líder Anão", anoesChapterOne));
+        //preface.options.add(new Choice("Líder Anão", anoesChapterOne));
         preface.options.add(new Choice("Líder Orc", orcsChapterOne));
 
         anoesChapterOne.options.add(new Choice("Sim, qualquer ajuda é bem vinda", anoesChapterTwo_1));

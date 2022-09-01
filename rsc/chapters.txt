@@ -5,3 +5,16 @@ CHAPTER_NOTES: null
 CHARACTER: Anões
 ENERGY_CHANGE: 0
 GOLD_CHANGE: 0
+
+CHAPTER
+TITLE: Capítulo 1
+TEXT: Ok a partir de agora você é o líder de um grupo de anões, sua missão é recuperar Erebor, a montanha solitária que uma vez já foi lar de seus ancestrais. Será uma missão difícil, pois há vários seres na terra média que também querem o controle daquela montanha, é provável que você precise de ajuda, há um pequeno Hobbit num condado aqui perto, gostaria de recrutá-lo para ajudar na missão?
+CHAPTER_NOTES: null
+CHARACTER: Anões
+ENERGY_CHANGE: 0
+GOLD_CHANGE: 0
+
+CHOICE
+SOURCE_CHAPTER: Apresentação Inicial
+TEXT: Líder Anão
+DESTINATION_CHAPTER: Capítulo 1
