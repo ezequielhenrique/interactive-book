@@ -41,7 +41,7 @@ public class Chapter {
             this.character.incrementGold(goldChange);
         }
         
-        if (this.chapterNotes != null) {
+        if (this.chapterNotes != null && this.chapterNotes != "") {
             System.out.println();
             System.out.println(this.chapterNotes + " Você possui " 
             + this.character.getEnergy() + " de energia e " 
