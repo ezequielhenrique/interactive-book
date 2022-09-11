@@ -2,25 +2,61 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Chapter {
-    String name;
-    String text;
-    String chapterNotes;
-    ArrayList<Choice> options;
-    Character character;
-    int energyChange;
-    int goldChange;
-    Scanner scanner;
+    private String name;
+    private String text;
+    private String chapterNotes;
+    private ArrayList<Choice> choices;
+    private Character character;
+    private int energyChange;
+    private int goldChange;
+    private Scanner scanner;
 
     public Chapter(String name, String text, String chapterNotes, Character character, 
                     int energyChange, int goldChange, Scanner scanner) {
         this.name = name;
         this.text = text;
         this.chapterNotes = chapterNotes;
-        this.options = new ArrayList<Choice>();
+        this.choices = new ArrayList<Choice>();
         this.character = character;
         this.energyChange = energyChange;
         this.goldChange = goldChange;
         this.scanner = scanner;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public String getChapterNotes() {
+        return this.chapterNotes;
+    }
+
+    public Character getCharacter() {
+        return this.character;
+    }
+
+    public int getEnegyChange() {
+        return this.energyChange;
+    }
+
+    public void setEnergyChange(int energyChange) {
+        this.energyChange = energyChange;
+    }
+
+    public int getGoldChange() {
+        return this.goldChange;
+    }
+
+    public void setGoldChange(int goldChange) {
+        this.goldChange = goldChange;
+    }
+
+    public void addChoice(Choice choice) {
+        this.choices.add(choice);
     }
 
     public void show() {
@@ -49,20 +85,20 @@ public class Chapter {
             System.out.println();
         }
 
-        if (this.options != null) {
-            for (int i=0; i < this.options.size(); i++) {
-                System.out.println(i + 1 + "- " + this.options.get(i).text);
+        if (this.choices != null) {
+            for (int i=0; i < this.choices.size(); i++) {
+                System.out.println(i + 1 + "- " + this.choices.get(i).getText());
             }
         }
 
-        if (options.size() > 0) {
+        if (choices.size() > 0) {
             int indexChoice = selectOption();
 
-            this.options.get(indexChoice).nextChapter.show();
+            this.choices.get(indexChoice).getChapter().show();
         }
     }
 
-    public int selectOption() {
+    private int selectOption() {
         int option;
         boolean isValid;
 
@@ -70,7 +106,7 @@ public class Chapter {
             System.out.println("Digite sua opção: ");
 
             option = this.scanner.nextInt() - 1;
-            isValid = (option >= 0 && option < this.options.size());
+            isValid = (option >= 0 && option < this.choices.size());
 
             if (!isValid) {
                 System.out.println("Opção inválida, tente novamente");

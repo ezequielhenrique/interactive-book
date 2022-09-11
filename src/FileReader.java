@@ -97,7 +97,7 @@ public class FileReader {
         Chapter sourceChapter = chapters.get(choiceSourceChapter);
         Chapter destinyChapter = chapters.get(choiceDestinationChapter);
 
-        sourceChapter.options.add(new Choice(choiceText, destinyChapter));
+        sourceChapter.addChoice(new Choice(choiceText, destinyChapter));
     }
 
     private String getValue(String fileLine) {

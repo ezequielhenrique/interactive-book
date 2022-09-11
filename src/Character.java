@@ -38,7 +38,11 @@ public class Character {
     }
     
     public void decrementEnergy(int value) {
-        this.energy -= value;
+        if (this.energy - value < 0) {
+            this.energy = 0;
+        } else {
+            this.energy -= value;
+        }
     }
 
     public void incrementGold(int value) {
@@ -46,6 +50,10 @@ public class Character {
     }
     
     public void decrementGold(int value) {
-        this.gold -= value;
+        if (this.gold - value < 0) {
+            this.gold = 0;
+        } else {
+            this.gold -= value;
+        }
     }
 }
