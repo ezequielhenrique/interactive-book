@@ -1,15 +1,20 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Chapter {
     private String name;
     private String text;
     private String chapterNotes;
-    private ArrayList<Choice> choices;
+    protected ArrayList<Choice> choices;
     private Character character;
     private int energyChange;
     private int goldChange;
     private Scanner scanner;
+
+    protected Chapter() {
+
+    }
 
     public Chapter(String name, String text, String chapterNotes, Character character, 
                     int energyChange, int goldChange, Scanner scanner) {
@@ -21,6 +26,11 @@ public class Chapter {
         this.energyChange = energyChange;
         this.goldChange = goldChange;
         this.scanner = scanner;
+    }
+
+    public Chapter(HashMap<String, Character> characters, Scanner scConsole, Scanner scFile) {
+        this.read(scConsole, characters, scFile);
+        this.choices = new ArrayList<Choice>();
     }
 
     public String getName() {
@@ -79,15 +89,23 @@ public class Chapter {
         
         if (this.chapterNotes != null && this.chapterNotes != "") {
             System.out.println();
-            System.out.println(this.chapterNotes + " Você possui " 
+            System.out.println("Notas do capítulo: " + this.chapterNotes + " Você possui " 
             + this.character.getEnergy() + " de energia e " 
             + this.character.getGold() + " de ouro.");
             System.out.println();
         }
 
         if (this.choices != null) {
-            for (int i=0; i < this.choices.size(); i++) {
-                System.out.println(i + 1 + "- " + this.choices.get(i).getText());
+            if (this.choices.size() == 1) {
+                if (this.choices.get(0).getText() == "") {
+                    System.out.print("Não há escolhas para esse capítulo, digite 1 para prosseguir. ");
+                } else {
+                    System.out.println(1 + "- " + this.choices.get(0).getText());
+                }
+            } else {
+                for (int i=0; i < this.choices.size(); i++) {
+                    System.out.println(i + 1 + "- " + this.choices.get(i).getText());
+                }
             }
         }
 
@@ -115,5 +133,18 @@ public class Chapter {
         } while (!isValid);
 
         return option;
+    }
+
+    protected void read(Scanner scConsole, HashMap<String, Character> characters,
+            Scanner sc) {
+
+        this.scanner = scConsole;
+
+        this.name = FileReader.getValue(sc.nextLine());
+        this.text = FileReader.getValue(sc.nextLine());
+        this.chapterNotes = FileReader.getValue(sc.nextLine());
+        this.character = characters.get(FileReader.getValue(sc.nextLine()));
+        this.energyChange = Integer.parseInt(FileReader.getValue(sc.nextLine()));
+        this.goldChange = Integer.parseInt(FileReader.getValue(sc.nextLine()));
     }
 }
