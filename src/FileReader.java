@@ -32,7 +32,7 @@ public class FileReader {
         return characters;
     }
 
-    public HashMap<String, Chapter> readChapters(String pathFile, HashMap<String, Character> characters, Scanner scConsole) throws FileNotFoundException {
+    public HashMap<String, Chapter> readChapters(String pathFile, HashMap<String, Character> characters) throws FileNotFoundException {
 
         HashMap<String, Chapter> chapters = new HashMap<String, Chapter>();
         File chaptersFile = new File(pathFile);
@@ -47,13 +47,13 @@ public class FileReader {
                 fileLine = sc.nextLine();
             }
             if (fileLine.equals("CHAPTER")) {
-                Chapter chapter = new Chapter(characters, scConsole, sc);
+                Chapter chapter = new Chapter(characters, sc);
 
                 chapters.put(chapter.getName(), chapter);
 
             }
             if (fileLine.equals("CHAPTER_IMAGE")) {
-                ChapterImage chapter = new ChapterImage(characters, scConsole, sc);
+                ChapterImage chapter = new ChapterImage(characters, sc);
 
                 chapters.put(chapter.getName(), chapter);
 

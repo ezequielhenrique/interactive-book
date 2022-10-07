@@ -25,6 +25,10 @@ public class Character {
         return this.energy;
     }
 
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+
     public int getGold() {
         return this.gold;
     }

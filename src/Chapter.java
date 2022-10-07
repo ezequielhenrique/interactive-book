@@ -10,14 +10,13 @@ public class Chapter {
     private Character character;
     private int energyChange;
     private int goldChange;
-    private Scanner scanner;
 
     protected Chapter() {
 
     }
 
     public Chapter(String name, String text, String chapterNotes, Character character, 
-                    int energyChange, int goldChange, Scanner scanner) {
+                    int energyChange, int goldChange) {
         this.name = name;
         this.text = text;
         this.chapterNotes = chapterNotes;
@@ -25,11 +24,10 @@ public class Chapter {
         this.character = character;
         this.energyChange = energyChange;
         this.goldChange = goldChange;
-        this.scanner = scanner;
     }
 
-    public Chapter(HashMap<String, Character> characters, Scanner scConsole, Scanner scFile) {
-        this.read(scConsole, characters, scFile);
+    public Chapter(HashMap<String, Character> characters, Scanner scFile) {
+        this.read(characters, scFile);
         this.choices = new ArrayList<Choice>();
     }
 
@@ -42,7 +40,9 @@ public class Chapter {
     }
 
     public String getChapterNotes() {
-        return this.chapterNotes;
+        return this.chapterNotes + " - Você possui agora " 
+        + this.character.getEnergy() + " de energia e " 
+        + this.character.getGold() + " de ouro.";
     }
 
     public Character getCharacter() {
@@ -69,77 +69,11 @@ public class Chapter {
         this.choices.add(choice);
     }
 
-    public void show() {
-        System.out.println();
-        System.out.println("========== " + this.name + " ==========");
-        System.out.println();
-        System.out.println(this.text);
-
-        if (this.energyChange < 0) {
-            this.character.decrementEnergy(-this.energyChange);
-        } else {
-            this.character.incrementEnergy(energyChange);
-        }
-
-        if (this.goldChange < 0) {
-            this.character.decrementGold(-this.goldChange);
-        } else {
-            this.character.incrementGold(goldChange);
-        }
-        
-        if (this.chapterNotes != null && this.chapterNotes != "") {
-            System.out.println();
-            System.out.println("Notas do capítulo: " + this.chapterNotes + " Você possui " 
-            + this.character.getEnergy() + " de energia e " 
-            + this.character.getGold() + " de ouro.");
-            System.out.println();
-        }
-
-        if (this.choices != null) {
-            if (this.choices.size() == 1) {
-                if (this.choices.get(0).getText() == "") {
-                    System.out.print("Não há escolhas para esse capítulo, digite 1 para prosseguir. ");
-                } else {
-                    System.out.println(1 + "- " + this.choices.get(0).getText());
-                }
-            } else {
-                for (int i=0; i < this.choices.size(); i++) {
-                    System.out.println(i + 1 + "- " + this.choices.get(i).getText());
-                }
-            }
-        }
-
-        if (choices.size() > 0) {
-            int indexChoice = selectOption();
-
-            this.choices.get(indexChoice).getChapter().show();
-        }
+    public ArrayList<Choice> getChoices() {
+        return choices;
     }
 
-    private int selectOption() {
-        int option;
-        boolean isValid;
-
-        do {
-            System.out.println("Digite sua opção: ");
-
-            option = this.scanner.nextInt() - 1;
-            isValid = (option >= 0 && option < this.choices.size());
-
-            if (!isValid) {
-                System.out.println("Opção inválida, tente novamente");
-            }
-
-        } while (!isValid);
-
-        return option;
-    }
-
-    protected void read(Scanner scConsole, HashMap<String, Character> characters,
-            Scanner sc) {
-
-        this.scanner = scConsole;
-
+    protected void read(HashMap<String, Character> characters, Scanner sc) {
         this.name = FileReader.getValue(sc.nextLine());
         this.text = FileReader.getValue(sc.nextLine());
         this.chapterNotes = FileReader.getValue(sc.nextLine());

@@ -1,23 +1,24 @@
-import java.util.HashMap;
-import java.util.Scanner;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class App {
+public class App extends Application {
     public static void main(String[] args) throws Exception {
-        try {
-            Scanner sc = new Scanner(System.in);
 
-            FileReader reader = new FileReader();
+        launch(args);
+        
+    }
+    
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("layout.fxml"));
+        Parent root = loader.load();
+        Scene screen = new Scene(root);
 
-            HashMap<String, Character> characters = reader.readCharacters("rsc/characters.txt");
-            HashMap<String, Chapter> chapters = reader.readChapters("rsc/chapters.txt", characters, sc);
-
-            Chapter rootChapter = chapters.get("Apresentação Inicial");
-            rootChapter.show();
-
-            sc.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        primaryStage.setTitle("Livro Interativo");
+        primaryStage.setScene(screen);
+        primaryStage.show();
     }
 }
