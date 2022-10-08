@@ -1,13 +1,5 @@
 CHAPTER_IMAGE
-IMAGE
-     __/\__
-. _  \\''//
--( )-/_||_\
- .'. \_()_/
-  |   | . \
-  |   | .  \
- .'. ,\_____'.
-END_IMAGE
+IMAGE: gandalf.jpg
 TITLE: Apresentação Inicial
 TEXT: Olá! Eu sou o Gandalf, o Mago Cinzento que irá te ajudar durante essa jornada, será uma jornada na terra média, um lugar onde você pode encontrar hobbits, anões, elfos e os terríveis orcs, você também terá itens como energia e ouro durante a jornada, eles podem aumentar ou diminuir baseado em suas ações, só é bom ter cuidado para não ficar sem energia... Primeiramente vamos fazer uma visita até o condado, há algumas coisas interessantes a se fazer por lá... 
 CHAPTER_NOTES:
@@ -15,7 +7,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: 0
 GOLD_CHANGE: 0
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: condado.jpg
 TITLE: Capítulo 1 - A visita ao condado
 TEXT: Chegamos ao condado, mas antes de fazer qualquer coisa preciso te falar qual é sua missão, você é o líder de um grupo de anões e seu objetivo é recuperar seu antigo lar, Erebor, também conhecida como a montanha solitária, não vai ser uma jornada fácil... Mas antes de entrar em detalhes temos algumas coisas a resolver aqui no condado que poderão ser úteis para a sua jornada, escolha sua ação com sabedoria:
 CHAPTER_NOTES: A ida ao condado lhe custou 10 de energia.
@@ -23,7 +16,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: -10
 GOLD_CHANGE: 0
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: terra-media.jpg
 TITLE: Capítulo 2 - A ida a colina
 TEXT: Agora que já temos armas seguimos até as colinas, elas são o principal caminho até a montanha solitária, durante a jornada um informante veio lhe avisar que há um grupo de orcs nas redondezas, o que você deseja fazer?
 CHAPTER_NOTES: Você gastou 500 moedas no comércio
@@ -31,7 +25,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: 0
 GOLD_CHANGE: -500
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: floresta.jpg
 TITLE: Capítulo 2 - A noite antes da alvorada
 TEXT: Fomos buscar o Hobbit no condado, ele hesitou em participar mas no fim acabou concordando em ir seguimos nossa viagem através das colinas, um dos integrantes do grupo ouviu um barulho distante, você foi conferir e descobre que um grupo de orcs está vindo atacá-los, o que você vai fazer?", 
 CHAPTER_NOTES: Você gastou 600 moedas para contratar o Hobbit
@@ -39,7 +34,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: 0
 GOLD_CHANGE: -600
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: terra-media.jpg
 TITLE: Capítulo 3 - O acampamento
 TEXT: Acampamos durante a noite em uma caverna segura e depois, logo ao amanhecer, seguimos nossa jornada pelas colinas, durante o caminho encontramos um hobbit, contamos a ele sobre nossa jornada e ele mostrou bastante interesse em participar, ele diz que por 750 moedas ele pode se juntar ao grupo, está disposto a contratá-lo?
 CHAPTER_NOTES: Você recuperou 10 de energia
@@ -47,7 +43,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: 10
 GOLD_CHANGE: 0
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: montanha.jpg
 TITLE: Capítulo 3 - Indo ao encontro dos Orcs
 TEXT: Seu grupo foi ao encontro dos orcs, vocês lutaram bravamente mas os orcs eram muitos...
 CHAPTER_NOTES: A jornada lhe custou 15 de energia
@@ -63,7 +60,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: -30
 GOLD_CHANGE: 0
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: montanha.jpg
 TITLE: Capítulo 4 - A emboscada I
 TEXT: Você contratou o hobbit e seguiu sua jornada pelas colinas, quando um integrante do grupo avistou um grupo de orcs se aproximando, você caiu numa emboscada! O que você irá fazer?
 CHAPTER_NOTES: Você gastou 750 moedas para contratar o hobbit, a jornada lhe custou 10 de energia
@@ -71,7 +69,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: -10
 GOLD_CHANGE: -750
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: montanha.jpg
 TITLE: Capítulo 4 - A emboscada II
 TEXT: Você seguiu a jornada pelas colinas sem o hobbit, até que um integrante do grupo avistou um grupo de orcs se aproximando, você caiu numa emboscada! Todos os integrantes do grupo procuraram por uma rota de fuga mas não tiveram êxito, agora só lhe resta uma opção... Lutar!
 CHAPTER_NOTES: A jornada lhe custou 10 de energia
@@ -95,7 +94,8 @@ CHARACTER: Anões
 ENERGY_CHANGE: -50
 GOLD_CHANGE: 0
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: floresta.jpg
 TITLE: Capítulo 5 - A fadiga
 TEXT: Vocês procuraram por todos os lugares e não encontraram nenhum local seguro para passar a noite, vocês ficaram vangando pela terra média até o fim de suas energias... 
 CHAPTER_NOTES: A jornada lhe custou 10 de energia
@@ -104,6 +104,51 @@ ENERGY_CHANGE: -10
 GOLD_CHANGE: 0
 
 CHAPTER
+TITLE: Capítulo 5 - A fuga
+TEXT: O pequeno Hobbit acabou encontrando um caminho secreto entre as rochas, seu grupo conseguiu fugir dos orcs através dele, o caminho os levou até as terras do leste onde há um reino Élfico nas redondezas... Escolha sua próxima ação
+CHAPTER_NOTES: A fuga lhe custou 10 de energia
+CHARACTER: Anões
+ENERGY_CHANGE: -10
+GOLD_CHANGE: 0
+
+CHAPTER_IMAGE
+IMAGE: valfenda.jpg
+TITLE: Capítulo 6 - Os Elfos
+TEXT: Vocês seguiram para o reino élfico, eles lhe ofereceram um bom lugar para descansar e uma parcela de seu exército para seguir com seu grupo até Erebor, após recuperar suas energias só lhe resta uma opção, recuperar seu antigo lar de uma vez por todas!
+CHAPTER_NOTES: Você recebeu 1000 de ouro e recuperou 20 de energia
+CHARACTER: Anões
+ENERGY_CHANGE: 20
+GOLD_CHANGE: 1000
+
+CHAPTER_IMAGE
+IMAGE: floresta.jpg
+TITLE: O assalto
+TEXT: Seu grupo seguiu jornada e ao anoitecer montou um acampamento na floresta para descansar... No dia seguinte tudo parecia bem até que o Hobbit notou algo que ninguém havia percebido, todas as suas reservas de dinheiro sumiram misteriosamente durante a noite!
+CHAPTER_NOTES: 
+CHARACTER: Anões
+ENERGY_CHANGE: 0
+GOLD_CHANGE: -10000
+
+CHAPTER_IMAGE
+IMAGE: batalha.jpeg
+TITLE: O Confronto final
+TEXT: Seu grupo se dirigiu para Erebor com apoio dos elfos, perto da montanha solitária vocês se depararam com um exército de orcs que também estavam tentando conquistar a montanha, houve uma dura batalha que durou por vários dias, mas seu exército lutou bravamente e conseguiu derrotar os orcs!
+CHAPTER_NOTES: A batalha lhe custou 30 de energia
+CHARACTER: Anões
+ENERGY_CHANGE: -30
+GOLD_CHANGE: 0
+
+CHAPTER_IMAGE
+IMAGE: vencedor.jpg
+TITLE: Você venceu!
+TEXT: Parabéns!!! você conseguiu recuperar Erebor, a montanha solitária, foi realizada uma grande festa para comemorar a reconquista de seu antigo lar!
+CHAPTER_NOTES: Você rebeu todas as riquezas da montanha!!!
+CHARACTER: Anões
+ENERGY_CHANGE: 0
+GOLD_CHANGE: 10000
+
+CHAPTER_IMAGE
+IMAGE: game-over.jpg
 TITLE: Fim de Jogo
 TEXT: Você perdeu a batalha contra os orcs e não consegiu recuperar Erebor
 CHAPTER_NOTES: Você perdeu toda a sua energia e os orcs roubaram todo o seu ouro
@@ -111,7 +156,17 @@ CHARACTER: Anões
 ENERGY_CHANGE: -100
 GOLD_CHANGE: -10000
 
-CHAPTER
+CHAPTER_IMAGE
+IMAGE: sem-dinheiro.png
+TITLE: Sem dinheiro
+TEXT: Voçê não tem mais recursos para prosseguir na jornada! Seu grupo voltou pra casa de mãos vazias
+CHAPTER_NOTES: Você perdeu todo o seu dinheiro
+CHARACTER: Anões
+ENERGY_CHANGE: 0
+GOLD_CHANGE: -10000
+
+CHAPTER_IMAGE
+IMAGE: sem-energia.png
 TITLE: Sem energia
 TEXT: Você perdeu toda a sua energia e não conseguirá prosseguir na jornada
 CHAPTER_NOTES: Você perdeu toda a sua energia
@@ -136,8 +191,18 @@ DESTINATION_CHAPTER: Capítulo 2 - A noite antes da alvorada
 
 CHOICE
 SOURCE_CHAPTER: Capítulo 2 - A ida a colina
-TEXT: Encontrar um local seguro e acampar durante a noite, a jornada será seguida em segurança no outro dia
+TEXT: Encontrar um local seguro e acampar durante a noite
 DESTINATION_CHAPTER: Capítulo 3 - O acampamento
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 2 - A noite antes da alvorada
+TEXT: Lutar, nós somos capazes de vencer esses orcs
+DESTINATION_CHAPTER: Capítulo 3 - Indo ao encontro dos Orcs
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 2 - A noite antes da alvorada
+TEXT: Fugir, pedir para os integrantes do grupo procurarem por uma saída
+DESTINATION_CHAPTER: Capítulo 5 - A fuga
 
 CHOICE
 SOURCE_CHAPTER: Capítulo 2 - A ida a colina
@@ -151,13 +216,53 @@ DESTINATION_CHAPTER: Capítulo 3 - A jornada continua
 
 CHOICE
 SOURCE_CHAPTER: Capítulo 3 - O acampamento
-TEXT: Sim, qualquer ajuda é bem vinda
+TEXT: Sim, apesar de pequeno esse Hobbit pode ser bastante útil
 DESTINATION_CHAPTER: Capítulo 4 - A emboscada I
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 4 - A emboscada I
+TEXT: Enfrentar os orcs
+DESTINATION_CHAPTER: Fim de Jogo
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 4 - A emboscada I
+TEXT: Procurar por uma saída
+DESTINATION_CHAPTER: Capítulo 5 - A fuga
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 5 - A fuga
+TEXT: Seguir viagem
+DESTINATION_CHAPTER: O assalto
+
+CHOICE
+SOURCE_CHAPTER: O assalto
+TEXT:
+DESTINATION_CHAPTER: Sem dinheiro
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 5 - A fuga
+TEXT: Ir até o reino élfico
+DESTINATION_CHAPTER: Capítulo 6 - Os Elfos
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 6 - Os Elfos
+TEXT: Seguir para Erebor
+DESTINATION_CHAPTER: O Confronto final
+
+CHOICE
+SOURCE_CHAPTER: O Confronto final
+TEXT:
+DESTINATION_CHAPTER: Você venceu!
 
 CHOICE
 SOURCE_CHAPTER: Capítulo 3 - O acampamento
 TEXT: Não, um pequeno hobbit não fará diferença no grupo, além disso ele cobra muito caro
 DESTINATION_CHAPTER: Capítulo 4 - A emboscada II
+
+CHOICE
+SOURCE_CHAPTER: Capítulo 4 - A emboscada II
+TEXT: Lutar com os orcs
+DESTINATION_CHAPTER: Fim de Jogo
 
 CHOICE
 SOURCE_CHAPTER: Capítulo 3 - Indo ao encontro dos Orcs

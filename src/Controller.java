@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -29,7 +31,7 @@ public class Controller {
     private TextArea textAreaText;
 
     @FXML
-    private Label labelImage;
+    private ImageView imageView;
 
     @FXML
     private TextArea textAreaChapterNotes;
@@ -56,9 +58,11 @@ public class Controller {
     void showChapter(Chapter chapter) {
 
         try {
-            labelImage.setText("");
+            imageView.setImage(null);
+            
             ChapterImage chapterImage = (ChapterImage) chapter;
-            labelImage.setText(chapterImage.getImage());
+            Image image = new Image("file:rsc/images/" + chapterImage.getImage());
+            imageView.setImage(image);;
         } catch (Exception e) {
             ;
         }
@@ -82,7 +86,11 @@ public class Controller {
         textAreaText.setText(chapter.getText());
         textAreaChapterNotes.setText("Notas do capítulo: " + chapter.getChapterNotes());
 
-        if (chapter.getName().equals("Fim de Jogo") || chapter.getName().equals("Sem energia")) {
+        if (chapter.getName().equals("Fim de Jogo") || 
+            chapter.getName().equals("Sem energia") || 
+            chapter.getName().equals("Sem dinheiro") || 
+            chapter.getName().equals("Você venceu!")) {
+
             boxRadioButtons.getChildren().clear();
             boxButtons.getChildren().clear();
 
@@ -95,6 +103,8 @@ public class Controller {
                 @Override
                 public void handle(ActionEvent event) {
                     Chapter rootChapter = chapters.get("Apresentação Inicial");
+                    rootChapter.getCharacter().setEnergy(100);
+                    rootChapter.getCharacter().setGold(1500);
                     showChapter(rootChapter);
                 }
             });

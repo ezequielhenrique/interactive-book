@@ -17,15 +17,7 @@ public class ChapterImage extends Chapter {
 
     @Override
     protected void read(HashMap<String, Character> characters, Scanner scFile) {
-        String line = scFile.nextLine();
-        this.image = "";
-        line = scFile.nextLine();
-
-        while (!line.equals("END_IMAGE")) {
-            this.image = this.image + "\n" + line;
-            line = scFile.nextLine();
-        }
-
+        this.image = FileReader.getValue(scFile.nextLine());
         super.read(characters, scFile);
     }
 }
